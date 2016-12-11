@@ -1,6 +1,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <stdio.h>
+//conio.h ce met dans /usr/local/include
 
 /* reads from keypress, doesn't echo */
 int getch(void)
