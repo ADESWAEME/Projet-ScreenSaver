@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
-#include <conio.h>
+#include "conio.h"
 #include "affichage.h"
 
 #define ANSI_COLOR_RED "\033[22;31m"//définit la couleur rouge

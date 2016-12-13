@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
-#include <conio.h>
+#include "conio.h"
 #include "affichage.h"
 
 #define ANSI_COLOR_BLUE "\033[22;34m"//définie la couleur bleu
