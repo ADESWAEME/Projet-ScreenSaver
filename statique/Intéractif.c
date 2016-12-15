@@ -1,43 +1,32 @@
 #include <ncurses.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <time.h>
 #include "kbhit.h"
 #define DELAY 30000
 
 int main(int argc, char *argv[])
 {
-	FILE* fichierst=fopen("stat.txt","r+");
-	int x, y ;//initialise les variable servant de coordonnées
-	int max_y = 0, max_x = 0;//initialise les variable servant pour définir le bord de l'écran
+	int x = 40, y = 12;
+	int max_y = 0, max_x = 0;
 	int next_x = 0;
-	int next_y = 0;//initialise les variable lié au mouvement de l'avion
-	int directionx ;
-	int directiony ;//initialise les variable lié à la direction que prend l'avion
-	char c;//variable servant au switch
-	int continuer;//variable servant pour la boucle
-	srand (time(NULL));
-	x=rand()%80;
-	y=rand()%24;
-	fseek(fichierst,0,SEEK_END);
-	fprintf(fichierst,"%dx%d",y,x);
-	continuer=rand()%3+1;//donne au variablex,y et continuer un nombre random
+	int next_y = 0;
+	int directionx = 1;
+	int directiony = 0;
+	char c;
+	int continuer=1;
 	initscr();
-	raw();//permet de passer en mode raw grace à la bibliothèque ncurses
-	noecho();//permet de ne pas avoir de problème avec l'anfoncement des touche
+	raw();
+	noecho();
 	curs_set(FALSE);
-	nodelay(stdscr, TRUE);//permet au getch() de ne pas avoir à attendre q'une touche soit enfoncé
-	keypad(stdscr, TRUE);//initialise les touche du clavier
+	nodelay(stdscr, TRUE);
+	keypad(stdscr, TRUE);
 
- 	getmaxyx(stdscr, max_y, max_x);//définit les bord du terminal
+ 	getmaxyx(stdscr, max_y, max_x);
 
-	while(continuer!=0)//boucle primaire du programme (tant qu'on en sort pas le programme continue)
+	while(continuer!=0)
 	{
-		while(continuer==1)//boucle secondaire, chaque boucle constitue un direction
+		while(continuer==1)
 		{
-			directionx=1;//variable lié à la direction que prend l'avion
-			directiony=0;
-			clear();//= system("clear")
+			clear();
 			mvprintw(y, x, "#");
 			mvprintw(y, x+1, "#");
 			mvprintw(y, x+2, "#");
@@ -48,13 +37,13 @@ int main(int argc, char *argv[])
 			mvprintw(y-2, x-1, "#");
 			mvprintw(y+2, x-1, "#");
 			mvprintw(y+1, x, "#");
-			mvprintw(y-1, x-3, "#");// inprime l'avion sur le terminal dans la bonne direction
-			refresh();//rafraichie l'affichage de l'avion après un changement de coordonnée
-			usleep(DELAY);// attente avant que la boucle continue
-			if (kbhit())//SI une touche est enfoncée
+			mvprintw(y-1, x-3, "#");
+			refresh();
+			usleep(DELAY);
+			if (kbhit())
 			{
 				c=getch();
-				switch(c){//switch permettant de changer de boucle si l'une des touche à l'intérieur est appuyée
+				switch(c){
 					case('x'):
 						continuer=0;
 						break;
@@ -78,19 +67,17 @@ int main(int argc, char *argv[])
 
 			}
 			next_x = x + directionx;
-			next_y = y + directiony;// définie les nouvelle coordonnée x et y
+			next_y = y + directiony;
 
-			if (next_x >= max_x)//cas ou l'avion commence à sortir de l'écran
+			if (next_x >= max_x)
 			{
 				x=0;
 			}
 			else {x+= directionx;}
 		}
 
-		while(continuer==2)//idem que la boucle while(continuer==1)
+		while(continuer==2)
 		{
-			directionx=0;
-			directiony=-1;
 			clear();
 			mvprintw(y, x, "#");
 			mvprintw(y+1, x, "#");
@@ -141,10 +128,8 @@ int main(int argc, char *argv[])
 			else {y+= directiony;}
 		}
 
-		while(continuer==3)//idem
+		while(continuer==3)
 		{
-			directionx=-1;
-			directiony=0;
 			clear();
 			mvprintw(y, x, "#");
 			mvprintw(y, x-1, "#");
@@ -194,10 +179,8 @@ int main(int argc, char *argv[])
 			else{x+=directionx;}
 		}
 
-		while(continuer==4)//idem
+		while(continuer==4)
 		{
-			directionx=0;
-			directiony=1;
 			clear();
 			mvprintw(y, x, "#");
 			mvprintw(y-1, x, "#");
@@ -245,7 +228,7 @@ int main(int argc, char *argv[])
 				y=0;
 			}
 			else{y+= directiony;}
-		}//sorti de la boucle quand continuer==0
+		}
 	}
-	endwin();//sort du mode raw
+	endwin();
 }

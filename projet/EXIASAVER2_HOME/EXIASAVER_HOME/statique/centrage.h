@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -23,7 +22,7 @@ void hauteur(int h)// permet de centrer l'image en hauteur
 {
 	if (h<24)//SI le nombre de ligne du fichier PBM ne dépasse pas le nombre de ligne du terminal (24)
 	{
-		int const n=((24-h)/2)-2;//calcul de n
+		int const n=(24-h)/2;//calcul de n
 		int i;//variable utilisée dans la boucle POUR
 
 		for(i=0; i<n; i++)//fait n fois un retour à la ligne pour centrer l'image

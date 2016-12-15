@@ -4,11 +4,7 @@
 #include <time.h>
 #include <string.h>
 
-<<<<<<< HEAD
-int main(int argc, char *argv[])
-=======
 int main(int argc, char * const argv[])
->>>>>>> 6175f72749b0897483e3fff69b23e7bb7b76b47b
 
 {
 

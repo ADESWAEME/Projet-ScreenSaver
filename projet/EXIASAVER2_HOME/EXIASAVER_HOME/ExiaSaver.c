@@ -4,10 +4,6 @@
 #include <string.h>
 #include "processtime.h"
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6175f72749b0897483e3fff69b23e7bb7b76b47b
 int main (int argc, char *argv[])
 
 {
