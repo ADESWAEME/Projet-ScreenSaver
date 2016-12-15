@@ -19,10 +19,11 @@ int main(int argc, char *argv[])
 	char *arguments4[] = { "spaceship", NULL };
 	char *arguments5[] = {"exia", NULL};
 	char *arguments6[] = {"castle", NULL};
+	char *arguments7[] = {"triforce",NULL};
 	FILE* fichierst=fopen("stat.txt","r+");
 	system("clear");
 	srand(time(NULL));
-	i=rand()%3;
+	i=rand()%4;
 
 
 
@@ -66,6 +67,21 @@ int main(int argc, char *argv[])
                         }
 
                 }
+
+
+ 	if (i==3)
+                {
+                        fseek(fichierst,0,SEEK_END);
+                        fprintf(fichierst,"triforce.PBM\n");
+                        fclose(fichierst);
+                        if (execv("triforce", arguments7)) {
+
+                                perror("execv");
+                                return EXIT_FAILURE;
+                        }
+
+                }
+
 
 
     return EXIT_SUCCESS;
