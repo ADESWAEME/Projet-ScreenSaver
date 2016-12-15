@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 		{
 			fseek(fichierst,0,SEEK_END);
 			fprintf(fichierst,"spaceship.pbm\n");
+			fclose(fichierst);
 			if (execv("spaceship", arguments4)) {
 
 				perror("execv");
@@ -44,7 +45,8 @@ int main(int argc, char *argv[])
                 {
 			fseek(fichierst,0,SEEK_END);
 			fprintf(fichierst,"exia.pbm\n");
-                        if (execv("exia", arguments5)) {
+                       	fclose(fichierst);
+			if (execv("exia", arguments5)) {
 
                                 perror("execv");
                                 return EXIT_FAILURE;
@@ -56,14 +58,14 @@ int main(int argc, char *argv[])
                 {
 			fseek(fichierst,0,SEEK_END);
 			fprintf(fichierst,"castle.pbm\n");
-                        if (execv("castle", arguments6)) {
+                        fclose(fichierst);
+			if (execv("castle", arguments6)) {
 
                                 perror("execv");
                                 return EXIT_FAILURE;
                         }
 
                 }
-	fclose(fichierst);
 
 
     return EXIT_SUCCESS;

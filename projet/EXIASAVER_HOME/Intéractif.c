@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	x=rand()%80;
 	y=rand()%24;
 	fseek(fichierst,0,SEEK_END);
-	fprintf(fichierst,"%dx%d",y,x);
+	fprintf(fichierst,"%dx%d\n",y,x);
 	continuer=rand()%3+1;//donne au variablex,y et continuer un nombre random
 	initscr();
 	raw();//permet de passer en mode raw grace à la bibliothèque ncurses

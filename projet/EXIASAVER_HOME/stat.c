@@ -21,9 +21,9 @@ int main (void)
 				printf("%c",ligne[n]);
 			}
 		}
-		if(ligne[20]=='1'){s++;}
-		if(ligne[20]=='2'){d++;}
-		if(ligne[20]=='3'){i++;}
+		if(ligne[21]=='1'){s++;}
+		if(ligne[21]=='2'){d++;}
+		if(ligne[21]=='3'){i++;}
 		printf("\n");
 	}
 	printf("\n vous voullez savoir quel ScreenSaver à été lancé le plus de fois?\n");
