@@ -14,8 +14,10 @@ void main()
 
 	struct winsize w; //structure pour la largeur de la fenetre
 
+
+	// déclarations de variables
 	int c =0;
-	
+
 	int continuer=1;
 	int xImg, yImg, xImg2, yImg2 ;
 	int longueur=31;
@@ -32,13 +34,13 @@ void main()
 	int unitSec;
 	
 	taille=rand_a_b(1,4);
-	if (taille==2)
+	if (taille==2)	// condition if
 		{
-		longueur=62;
+		longueur=62;	//instruction
 		}
 
 	
-	while (continuer)
+	while (continuer)	// boucle infinie
 		{
 		time(&temps);
 		date=*localtime(&temps);
