@@ -1,11 +1,9 @@
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <unistd.h>
-
 #include <time.h>
-
+#include <dirent.h>
+#include <sys/types.h>
 
 int main(int argc, char *argv[])
 
@@ -20,10 +18,11 @@ int main(int argc, char *argv[])
 	char *arguments5[] = {"exia", NULL};
 	char *arguments6[] = {"castle", NULL};
 	char *arguments7[] = {"triforce",NULL};
+	char *arguments8[] = {"Stormtrooper",NULL};
 	FILE* fichierst=fopen("stat.txt","r+");
 	system("clear");
 	srand(time(NULL));
-	i=rand()%4;
+	i=rand()%5;
 
 
 
@@ -81,6 +80,20 @@ int main(int argc, char *argv[])
                         }
 
                 }
+
+	if (i==4)
+                {
+                        fseek(fichierst,0,SEEK_END);
+                        fprintf(fichierst,"Stormtrooper.pbm\n");
+                        fclose(fichierst);
+                        if (execv("Stormtrooper", arguments8)) {
+
+                                perror("execv");
+                                return EXIT_FAILURE;
+                        }
+
+                }
+
 
 
 

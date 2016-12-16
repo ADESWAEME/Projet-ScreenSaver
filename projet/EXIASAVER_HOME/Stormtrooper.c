@@ -7,13 +7,13 @@
 #include "affichage.h"
 #include <sys/wait.h>
 
-#define ANSI_COLOR_RED "\033[22;31m"//définit la couleur rouge
+#define ANSI_COLOR_YELLOW "\x1b[33m"//définie la couleur bleu
 
 void main ()
 
 {
-        char *filename= "spaceship.pbm";//introduit le nom du fichier dans un pointeur pour l'env$
-        char *color= ANSI_COLOR_RED;//définir la couleur de l'image
+        char *filename= "Stormtrooper.pbm";//introduit le nom du fichier dans un pointeur pour l'env$
+        char *color= ANSI_COLOR_YELLOW;//définir la couleur de l'image
         pid_t pid;
         pid = fork();
 
@@ -32,5 +32,4 @@ void main ()
 
         }
 }
-
 

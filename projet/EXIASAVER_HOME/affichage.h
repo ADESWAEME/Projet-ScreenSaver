@@ -4,11 +4,14 @@
 #include <unistd.h>
 #include <string.h>
 #include "centrage.h"
+#include <dirent.h>
 
 #define ANSI_COLOR_RESET "\033[01;37m"//définit la couleur de base de l'affichage
 
 void affichage(char **filename,int h,int l,char **color)
 {
+	DIR * rep = NULL;
+	rep = opendir("/home/Documents/CESI/U2/Projet/Projet-ScreenSaver/projet/EXIASAVER_HOME/");
 	FILE *fichier=fopen(*filename,"r"); //ouvre le fichier contenant l'image
 	char ligne[80]; //définit le maximum de charactère sur une ligne
 	int n=35;	//numéro en décimale sur la table ASCII du signe "#"
@@ -31,6 +34,7 @@ void affichage(char **filename,int h,int l,char **color)
 		printf("\n");//va à la ligne quand une ligne est fini.
 	}
 	fclose(fichier);//ferme le fichier pour éviter les problème
+	closedir(rep); //ferme le dossier
 }
 
 
